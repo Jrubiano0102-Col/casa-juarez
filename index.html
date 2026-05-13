@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CASA JUAREZ - Sabor y Tradición</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="assets/script.js"></script>
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        /* Smooth scroll animations */
+        section:not(:first-of-type) {
+            opacity: 0;
+            transform: translateY(3rem);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background antialiased selection:bg-secondary selection:text-on-secondary">
+    <!-- TopNavBar Shared Component -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-xl border-b border-white/5 transition-all duration-300 ease-in-out">
+        <div
+            class="flex justify-between items-center px-margin-mobile md:px-section-padding-desktop py-stack-md max-w-container-max mx-auto">
+            <div class="font-display-lg-mobile text-headline-md tracking-tighter text-on-surface">CASA JUAREZ</div>
+            <div class="hidden md:flex space-x-gutter items-center">
+                <a class="font-label-lg text-label-lg text-on-surface/80 font-medium hover:text-primary transition-colors hover:scale-105 duration-300"
+                    href="#menu">Menu</a>
+                <a class="font-label-lg text-label-lg text-on-surface/80 font-medium hover:text-primary transition-colors hover:scale-105 duration-300"
+                    href="#reviews">Reseñas</a>
+                <a class="font-label-lg text-label-lg text-on-surface/80 font-medium hover:text-primary transition-colors hover:scale-105 duration-300"
+                    href="#gallery">Galería</a>
+                <a class="font-label-lg text-label-lg text-on-surface/80 font-medium hover:text-primary transition-colors hover:scale-105 duration-300"
+                    href="#contact">Contacto</a>
+            </div>
+            <a href="https://wa.me/573217761953?text=Hola,%20quiero%20reservar%20una%20mesa" target="_blank"
+                class="bg-primary text-on-primary font-label-lg text-label-lg px-6 py-3 rounded-full hover:brightness-110 transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.3)]">
+                Reserva
+            </a>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section
+        class="relative min-h-screen flex items-center justify-center px-margin-mobile md:px-section-padding-desktop pt-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img alt="Hero Background" class="w-full h-full object-cover opacity-50" src="assets/baner.jpg" />
+            <div class="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent"></div>
+        </div>
+        <div
+            class="relative z-10 w-full max-w-container-max mx-auto flex flex-col items-center text-center space-y-stack-lg">
+            <h1
+                class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface max-w-4xl drop-shadow-2xl">
+                Sabor que Enamora,<br /><span class="text-primary italic">Estilo que Deslumbra</span>
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                Una experiencia gastronómica única en el corazón de la ciudad. Sumérgete en una atmósfera de
+                exclusividad y cocina de autor.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-gutter pt-stack-md">
+                <button
+                    class="bg-primary text-on-primary font-label-lg text-label-lg px-8 py-4 rounded-full hover:brightness-110 transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:scale-105">
+                    Reservar Mesa
+                </button>
+                <a href="https://drive.google.com/file/d/1xYIKQ6hVchVsYKoVnF73B0NHnoUtpfUx/view" target="_blank"
+                    class="border border-primary font-label-lg text-label-lg px-8 py-4 rounded-full text-on-surface hover:bg-primary/10 transition-all duration-300 hover:scale-105 flex items-center justify-center">
+                    Ver Menú
+                </a>
+            </div>
+            <div
+                class="glass-panel mt-16 p-stack-md rounded-2xl flex flex-wrap justify-center gap-x-8 gap-y-4 max-w-3xl">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">schedule</span>
+                    <span class="font-label-md text-label-md text-on-surface/70">Lun-Dom 13:00-22:00</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">location_on</span>
+                    <span class="font-label-md text-label-md text-on-surface/70">Dg. 69b Sur #78l16</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">phone</span>
+                    <span class="font-label-md text-label-md text-on-surface/70">+57 321 7761953</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Featured Dishes (Bento Grid) -->
+    <section id="menu"
+        class="py-section-padding-mobile md:py-section-padding-desktop px-margin-mobile md:px-section-padding-desktop max-w-container-max mx-auto">
+        <!-- Separator -->
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 mb-16"></div>
+        <div class="mb-16 text-center md:text-left">
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Menu de
+                Autor</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-4">Nuestra selección de autor curada para
+                paladares
+                exigentes.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+            <!-- Dish 1: Large -->
+            <div
+                class="md:col-span-8 glass-panel rounded-2xl overflow-hidden group flex flex-col md:flex-row transition-all duration-300 dish-card cursor-pointer">
+                <div class="md:w-1/2 h-64 md:h-auto overflow-hidden relative">
+                    <img alt="Plato 1"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        src="assets/plato 1.jpg" />
+                </div>
+                <div class="p-stack-lg flex flex-col justify-center md:w-1/2">
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Tacos al Pastor</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">Cerdo marinado con nuestra receta
+                        secreta, piña asada, cebolla y cilantro fresco sobre tortillas de maíz recién hechas.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-label-lg text-label-lg text-primary text-xl">€18</span>
+                        <button
+                            class="text-on-surface hover:text-primary transition-colors p-2 rounded-full border border-white/10 hover:border-primary">
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Dish 2: Small -->
+            <div
+                class="md:col-span-4 glass-panel rounded-2xl overflow-hidden group transition-all duration-300 flex flex-col dish-card cursor-pointer">
+                <div class="h-48 overflow-hidden">
+                    <img alt="Plato 2"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        src="assets/plato 2.jpg" />
+                </div>
+                <div class="p-stack-md flex-1 flex flex-col">
+                    <h3 class="font-headline-md text-xl text-on-surface mb-2">Quesadillas Clásicas</h3>
+                    <p class="font-body-md text-body-md text-sm text-on-surface-variant mb-4 line-clamp-2">Costra de
+                        queso fundido, pico de gallo y salsa verde tatemada.</p>
+                    <span class="font-label-lg text-label-lg text-primary mt-auto">€12</span>
+                </div>
+            </div>
+            <!-- Dish 3: Small -->
+            <div
+                class="md:col-span-4 glass-panel rounded-2xl overflow-hidden group transition-all duration-300 flex flex-col dish-card cursor-pointer">
+                <div class="h-48 overflow-hidden">
+                    <img alt="Plato 3"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        src="assets/plato 3.jpg" />
+                </div>
+                <div class="p-stack-md flex-1 flex flex-col">
+                    <h3 class="font-headline-md text-xl text-on-surface mb-2">Nachos Supremos</h3>
+                    <p class="font-body-md text-body-md text-sm text-on-surface-variant mb-4 line-clamp-2">Totopos
+                        bañados en queso, guacamole, crema agria y jalapeños.</p>
+                    <span class="font-label-lg text-label-lg text-primary mt-auto">€14</span>
+                </div>
+            </div>
+            <!-- Dish 4: Large -->
+            <div
+                class="md:col-span-8 glass-panel rounded-2xl overflow-hidden group flex flex-col md:flex-row-reverse transition-all duration-300 dish-card cursor-pointer">
+                <div class="md:w-1/2 h-64 md:h-auto overflow-hidden relative">
+                    <img alt="Plato 4"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        src="assets/plato 4.jpg" />
+                </div>
+                <div class="p-stack-lg flex flex-col justify-center md:w-1/2">
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Enchiladas Suizas</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">Pollo desmenuzado en tortillas de
+                        maíz, bañadas en salsa verde cremosa y queso gratinado, acompañadas de frijoles refritos.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-label-lg text-label-lg text-primary text-xl">€22</span>
+                        <a href="https://drive.google.com/file/d/1xYIKQ6hVchVsYKoVnF73B0NHnoUtpfUx/view" target="_blank"
+                            class="text-on-surface hover:text-primary transition-colors flex items-center gap-2">
+                            <span class="font-label-md text-label-md">Descubrir Menú</span>
+                            <span class="material-symbols-outlined text-sm">east</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Gallery Section -->
+    <section
+        class="py-section-padding-mobile md:py-section-padding-desktop px-margin-mobile md:px-section-padding-desktop max-w-container-max mx-auto"
+        id="gallery">
+        <!-- Separator -->
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 mb-16"></div>
+        <div class="mb-16 text-center">
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Nuestra Experiencia
+            </h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-4">Sumérgete en un mundo de sofisticación y
+                detalle.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto md:h-[800px]">
+            <!-- Main Atmosphere Image -->
+            <div
+                class="md:col-span-8 md:row-span-2 relative overflow-hidden rounded-2xl group gallery-item cursor-pointer">
+                <img alt="Atmósfera del restaurante"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    src="assets/interior.jpg" />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-stack-lg">
+                    <span class="font-label-lg text-on-surface">Ambiente Exclusivo</span>
+                </div>
+            </div>
+            <!-- Cocktail Detail -->
+            <div class="md:col-span-4 relative overflow-hidden rounded-2xl group gallery-item cursor-pointer">
+                <img alt="Cóctel de autor"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="assets/comida1.jpg" />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-stack-md">
+                    <span class="font-label-lg text-on-surface">Mixología de Autor</span>
+                </div>
+            </div>
+            <!-- Culinary Detail -->
+            <div class="md:col-span-4 relative overflow-hidden rounded-2xl group gallery-item cursor-pointer">
+                <img alt="Plato gourmet"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="assets/comida 2.jpg" />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-stack-md">
+                    <span class="font-label-lg text-on-surface">Arte Culinario</span>
+                </div>
+            </div>
+            <!-- Wide View -->
+            <div
+                class="md:col-span-12 h-[300px] md:h-auto relative overflow-hidden rounded-2xl group gallery-item cursor-pointer">
+                <img alt="Salón principal"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    src="assets/interior 2.jpg" />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent flex items-end p-stack-lg">
+                    <div class="border-l-2 border-primary pl-4">
+                        <p class="font-display-lg text-headline-md text-on-surface">Diseño &amp; Confort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features Section -->
+    <section class="bg-surface-container-lowest py-section-padding-mobile md:py-section-padding-desktop">
+        <!-- Separator -->
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 mb-16"></div>
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-section-padding-desktop">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
+                <div class="flex flex-col items-center group">
+                    <div
+                        class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-4 border border-primary/20 group-hover:bg-primary/20 transition-all duration-300">
+                        <span class="material-symbols-outlined text-3xl text-primary">eco</span>
+                    </div>
+                    <span class="font-label-md text-label-md text-on-surface">Ingredientes Frescos</span>
+                </div>
+                <div class="flex flex-col items-center group">
+                    <div
+                        class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-4 border border-primary/20 group-hover:bg-primary/20 transition-all duration-300">
+                        <span class="material-symbols-outlined text-3xl text-primary">restaurant</span>
+                    </div>
+                    <span class="font-label-md text-label-md text-on-surface">Cocina Artesanal</span>
+                </div>
+                <div class="flex flex-col items-center group">
+                    <div
+                        class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-4 border border-primary/20 group-hover:bg-primary/20 transition-all duration-300">
+                        <span class="material-symbols-outlined text-3xl text-primary">local_shipping</span>
+                    </div>
+                    <span class="font-label-md text-label-md text-on-surface">Servicio Rápido</span>
+                </div>
+                <div class="flex flex-col items-center group">
+                    <div
+                        class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-4 border border-primary/20 group-hover:bg-primary/20 transition-all duration-300">
+                        <span class="material-symbols-outlined text-3xl text-primary">wine_bar</span>
+                    </div>
+                    <span class="font-label-md text-label-md text-on-surface">Ambiente Premium</span>
+                </div>
+                <div class="flex flex-col items-center group col-span-2 md:col-span-1">
+                    <div
+                        class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-4 border border-primary/20 group-hover:bg-primary/20 transition-all duration-300">
+                        <span class="material-symbols-outlined text-3xl text-primary">star</span>
+                    </div>
+                    <span class="font-label-md text-label-md text-on-surface">Chef Especialista</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Reviews Section -->
+    <section
+        class="py-section-padding-mobile md:py-section-padding-desktop px-margin-mobile md:px-section-padding-desktop max-w-container-max mx-auto"
+        id="reviews">
+        <!-- Separator -->
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 mb-16"></div>
+        <div class="mb-16 text-center">
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Lo que dicen de
+                nosotros</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-4">Experiencias reales de nuestros comensales
+                en Google.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Review 1 -->
+            <a href="https://maps.app.goo.gl/EQafTLUdH7cyuqZb6" target="_blank"
+                class="glass-panel p-8 rounded-2xl border border-white/10 hover:border-primary/50 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1 flex flex-col group cursor-pointer">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="flex gap-4 items-center">
+                        <div
+                            class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-on-surface font-headline-sm group-hover:bg-primary/20 transition-colors">
+                            C
+                        </div>
+                        <div class="text-left">
+                            <h3 class="font-label-lg text-on-surface group-hover:text-primary transition-colors">Camila
+                                S.</h3>
+                            <span class="text-sm text-on-surface-variant">Hace 1 semana</span>
+                        </div>
+                    </div>
+                    <svg class="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#4285F4"
+                            d="M23.7449 12.27C23.7449 11.48 23.6749 10.73 23.5549 10H12.2549V14.51H18.7249C18.4349 15.99 17.5849 17.24 16.3249 18.09V21.09H20.1849C22.4449 19.01 23.7449 15.92 23.7449 12.27Z" />
+                        <path fill="#34A853"
+                            d="M12.2549 24C15.4949 24 18.2049 22.92 20.1849 21.09L16.3249 18.09C15.2449 18.81 13.8749 19.25 12.2549 19.25C9.1249 19.25 6.4749 17.14 5.5249 14.29H1.54492V17.38C3.51492 21.3 7.5649 24 12.2549 24Z" />
+                        <path fill="#FBBC05"
+                            d="M5.5249 14.29C5.2749 13.57 5.1449 12.8 5.1449 12C5.1449 11.2 5.2849 10.43 5.5249 9.71V6.62H1.54492C0.724922 8.24 0.254922 10.06 0.254922 12C0.254922 13.94 0.724922 15.76 1.54492 17.38L5.5249 14.29Z" />
+                        <path fill="#EA4335"
+                            d="M12.2549 4.75C14.0249 4.75 15.6049 5.36 16.8549 6.55L20.2749 3.13C18.2049 1.19 15.4949 0 12.2549 0C7.5649 0 3.51492 2.7 1.54492 6.62L5.5249 9.71C6.4749 6.86 9.1249 4.75 12.2549 4.75Z" />
+                    </svg>
+                </div>
+                <div class="flex text-primary mb-4">
+                    <span class="material-symbols-outlined text-xl"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-xl"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-xl"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-xl"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-xl"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p
+                    class="font-body-md text-on-surface-variant italic mb-6 group-hover:text-on-surface transition-colors">
+                    "Excelente servicio y comida deliciosa. Las costillas y el pescado estuvieron increíbles. El
+                    personal fue muy atento y paciente."
+                </p>
+            </a>
+
+            <!-- Review 2 -->
+            <a href="https://maps.app.goo.gl/EQafTLUdH7cyuqZb6" target="_blank"
+                class="glass-panel p-8 rounded-2xl border border-white/10 hover:border-primary/50 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1 flex flex-col group cursor-pointer">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="flex gap-4 items-center">
+                        <div
+                            class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-on-surface font-headline-sm group-hover:bg-primary/20 transition-colors">
+                            D
+                        </div>
+                        <div class="text-left">
+                            <h3 class="font-label-lg text-on-surface group-hover:text-primary transition-colors">Diego
+                                R.</h3>
+                            <span class="text-sm text-on-surface-variant">Hace 1 mes</span>
+                        </div>
+                    </div>
+                    <svg class="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#4285F4"
+                            d="M23.7449 12.27C23.7449 11.48 23.6749 10.73 23.5549 10H12.2549V14.51H18.7249C18.4349 15.99 17.5849 17.24 16.3249 18.09V21.09H20.1849C22.4449 19.01 23.7449 15.92 23.7449 12.27Z" />
+                        <path fill="#34A853"
+                            d="M12.2549 24C15.4949 24 18.2049 22.92 20.1849 21.09L16.3249 18.09C15.2449 18.81 13.8749 19.25 12.2549 19.25C9.1249 19.25 6.4749 17.14 5.5249 14.29H1.54492V17.38C3.51492 21.3 7.5649 24 12.2549 24Z" />
+                        <path fill="#FBBC05"
+                            d="M5.5249 14.29C5.2749 13.57 5.1449 12.8 5.1449 12C5.1449 11.2 5.2849 10.43 5.5249 9.71V6.62H1.54492C0.724922 8.24 0.254922 10.06 0.254922 12C0.254922 13.94 0.724922 15.76 1.54492 17.38L5.5249 14.29Z" />
+                        <path fill="#EA4335"
+                            d="M12.2549 4.75C14.0249 4.75 15.6049 5.36 16.8549 6.55L20.2749 3.13C18.2049 1.19 15.4949 0 12.2549 0C7.5649 0 3.51492 2.7 1.54492 6.62L5.5249 9.71C6.4749 6.86 9.1249 4.75 12.2549 4.75Z" />
+                    </svg>
+                </div>
+                <div class="flex text-primary mb-4">
+                    <span class="material-symbols-outlined text-xl"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-xl"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-xl"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-xl"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-xl"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p
+                    class="font-body-md text-on-surface-variant italic mb-6 group-hover:text-on-surface transition-colors">
+                    "El lugar tiene una decoración muy cuidada y un ambiente festivo ideal para ir en grupo. La
+                    experiencia fue muy agradable."
+                </p>
+            </a>
+
+            <!-- Review 3 -->
+            <a href="https://maps.app.goo.gl/EQafTLUdH7cyuqZb6" target="_blank"
+                class="glass-panel p-8 rounded-2xl border border-white/10 hover:border-primary/50 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1 flex flex-col group cursor-pointer">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="flex gap-4 items-center">
+                        <div
+                            class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-on-surface font-headline-sm group-hover:bg-primary/20 transition-colors">
+                            L
+                        </div>
+                        <div class="text-left">
+                            <h3 class="font-label-lg text-on-surface group-hover:text-primary transition-colors">Laura
+                                P.</h3>
+                            <span class="text-sm text-on-surface-variant">Hace 2 meses</span>
+                        </div>
+                    </div>
+                    <svg class="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#4285F4"
+                            d="M23.7449 12.27C23.7449 11.48 23.6749 10.73 23.5549 10H12.2549V14.51H18.7249C18.4349 15.99 17.5849 17.24 16.3249 18.09V21.09H20.1849C22.4449 19.01 23.7449 15.92 23.7449 12.27Z" />
+                        <path fill="#34A853"
+                            d="M12.2549 24C15.4949 24 18.2049 22.92 20.1849 21.09L16.3249 18.09C15.2449 18.81 13.8749 19.25 12.2549 19.25C9.1249 19.25 6.4749 17.14 5.5249 14.29H1.54492V17.38C3.51492 21.3 7.5649 24 12.2549 24Z" />
+                        <path fill="#FBBC05"
+                            d="M5.5249 14.29C5.2749 13.57 5.1449 12.8 5.1449 12C5.1449 11.2 5.2849 10.43 5.5249 9.71V6.62H1.54492C0.724922 8.24 0.254922 10.06 0.254922 12C0.254922 13.94 0.724922 15.76 1.54492 17.38L5.5249 14.29Z" />
+                        <path fill="#EA4335"
+                            d="M12.2549 4.75C14.0249 4.75 15.6049 5.36 16.8549 6.55L20.2749 3.13C18.2049 1.19 15.4949 0 12.2549 0C7.5649 0 3.51492 2.7 1.54492 6.62L5.5249 9.71C6.4749 6.86 9.1249 4.75 12.2549 4.75Z" />
+                    </svg>
+                </div>
+                <div class="flex text-primary mb-4">
+                    <span class="material-symbols-outlined text-xl"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-xl"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-xl"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-xl"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-xl"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p
+                    class="font-body-md text-on-surface-variant italic mb-6 group-hover:text-on-surface transition-colors">
+                    "Los precios son justos en relación a la gran calidad que ofrecen. Muy buena atención al cliente en
+                    todo momento. 100% recomendado."
+                </p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Find Us Section -->
+    <section
+        class="py-section-padding-mobile md:py-section-padding-desktop px-margin-mobile md:px-section-padding-desktop max-w-container-max mx-auto"
+        id="contact">
+        <!-- Separator -->
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 mb-16"></div>
+        <div class="mb-16 text-center">
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Encuéntranos</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-4">Una ubicación privilegiada para una
+                experiencia inigualable.</p>
+        </div>
+
+        <div class="flex flex-col gap-6 items-center w-full">
+            <!-- Info Card -->
+            <div class="p-6 md:p-8 rounded-2xl border border-primary/40 w-full"
+                style="background-color: rgba(0,0,0,0.92);">
+                <div class="space-y-6">
+                    <!-- Location -->
+                    <div class="flex gap-4">
+                        <span class="material-symbols-outlined text-primary text-3xl">location_on</span>
+                        <div>
+                            <h3 class="font-headline-sm text-on-surface mb-2">Ubicación</h3>
+                            <p class="font-body-md text-on-surface-variant">Dg. 69b Sur #78l16, Bosa<br>Bogotá, Colombia
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="flex gap-4">
+                        <span class="material-symbols-outlined text-primary text-3xl">call</span>
+                        <div>
+                            <h3 class="font-headline-sm text-on-surface mb-2">Contacto</h3>
+                            <p class="font-body-md text-on-surface-variant">
+                                +57 321 7761953<br>
+                                reservas@casajuarez.com
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <a href="https://maps.app.goo.gl/EQafTLUdH7cyuqZb6" target="_blank"
+                        class="inline-flex items-center justify-center w-full bg-primary text-on-primary font-label-lg text-label-lg px-6 py-3 rounded-full hover:brightness-110 transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:scale-105">
+                        Abrir en Google Maps
+                        <span class="material-symbols-outlined ml-2 text-sm">open_in_new</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Google Maps Iframe -->
+            <div class="h-[300px] md:h-[400px] rounded-3xl overflow-hidden w-full shadow-lg">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1500.0!2d-74.1880204!3d4.6018438!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9f0052a7e81f%3A0x8c8ee33517774666!2sCasa%20Ju%C3%A1rez%20Bosa!5e0!3m2!1ses-419!2sco!4v1778705945605!5m2!1ses-419!2sco"
+                    class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Shared Component -->
+    <footer class="bg-background border-t border-white/5 mt-24">
+        <div
+            class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-section-padding-desktop py-stack-lg max-w-container-max mx-auto">
+            <div class="font-display-lg text-headline-lg text-on-surface mb-8 md:mb-0">CASA JUAREZ</div>
+            <div class="flex flex-wrap justify-center gap-6 mb-8 md:mb-0">
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200"
+                    href="#">Privacy Policy</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200"
+                    href="#">Terms of Service</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200"
+                    href="#">Press Kit</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200"
+                    href="#">Careers</a>
+            </div>
+            <div class="flex flex-col items-center md:items-end gap-4">
+                <a class="text-on-surface-variant hover:text-primary transition-colors p-2 bg-surface-container rounded-full"
+                    href="#">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+                        <path clip-rule="evenodd"
+                            d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                            fill-rule="evenodd"></path>
+                    </svg>
+                </a>
+                <p class="font-body-md text-sm text-on-surface-variant/60">© 2024 CASA JUAREZ. TODOS LOS DERECHOS
+                    RESERVADOS.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Floating Social Buttons -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-[100]">
+        <a href="https://www.instagram.com/casajuarezmx/" target="_blank"
+            class="floating-button instagram-bg text-white" aria-label="Instagram">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.245 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.063 1.366-.333 2.633-1.308 3.608-.975.975-2.242 1.245-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.063-2.633-.333-3.608-1.308-.975-.975-1.245-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.245 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.337 2.618 6.76 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.351-.2 6.772-2.618 6.972-6.98.059-1.28.073-1.688.073-4.947s-.014-3.667-.072-4.947c-.2-4.337-2.617-6.76-6.972-6.98-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+        </a>
+        <a href="https://wa.me/573217761953?text=Hola,%20quisiera%20tener%20m%C3%A1s%20informaci%C3%B3n?%20🇲🇽🇨🇴"
+            target="_blank" class="floating-button whatsapp-bg text-white" aria-label="WhatsApp">
+            <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            </svg>
+        </a>
+    </div>
+
+    <!-- Image Modal (Lightbox) -->
+    <div id="image-modal"
+        class="fixed inset-0 z-[200] hidden bg-black/95 items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <button id="close-modal" class="absolute top-6 right-6 text-white hover:text-primary transition-colors z-10">
+            <span class="material-symbols-outlined text-4xl">close</span>
+        </button>
+        <img id="modal-image" src=""
+            class="max-w-full max-h-[90vh] object-contain rounded-xl scale-95 transition-transform duration-300"
+            alt="Vista ampliada">
+    </div>
+
+    <!-- Dish Modal -->
+    <div id="dish-modal"
+        class="fixed inset-0 z-[200] hidden bg-black/95 items-center justify-center p-4 md:p-8 opacity-0 transition-opacity duration-300">
+        <div class="bg-surface-container rounded-3xl max-w-4xl w-full flex flex-col md:flex-row overflow-hidden border border-white/10 scale-95 transition-transform duration-300 relative"
+            id="dish-modal-content">
+            <button id="close-dish-modal"
+                class="absolute top-4 right-4 text-white/70 hover:text-primary transition-colors z-10 bg-black/50 p-2 rounded-full">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="md:w-1/2 h-64 md:h-auto relative">
+                <img id="dish-modal-img" src="" class="w-full h-full object-cover" alt="Plato">
+            </div>
+            <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-surface-container">
+                <h3 id="dish-modal-title" class="font-headline-lg text-3xl text-on-surface mb-4"></h3>
+                <p id="dish-modal-desc" class="font-body-md text-on-surface-variant mb-8 text-lg"></p>
+                <div class="flex items-center justify-between mt-auto pt-8 border-t border-white/10">
+                    <span id="dish-modal-price" class="font-display-lg text-4xl text-primary font-bold"></span>
+                    <a id="dish-modal-order" href="#" target="_blank"
+                        class="bg-primary text-on-primary font-label-lg px-8 py-4 rounded-full hover:brightness-110 transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.3)] flex items-center gap-2">
+                        Ordenar
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-image');
+            const closeBtn = document.getElementById('close-modal');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const img = item.querySelector('img');
+                    if (img) {
+                        modalImg.src = img.src;
+                        modal.classList.remove('hidden');
+                        modal.classList.add('flex');
+                        // Small delay to allow display:flex to apply before changing opacity for transition
+                        setTimeout(() => {
+                            modal.classList.remove('opacity-0');
+                            modalImg.classList.remove('scale-95');
+                            modalImg.classList.add('scale-100');
+                        }, 10);
+                    }
+                });
+            });
+
+            const closeModal = () => {
+                modal.classList.add('opacity-0');
+                modalImg.classList.remove('scale-100');
+                modalImg.classList.add('scale-95');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    modalImg.src = '';
+                }, 300);
+            };
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+
+            // Dish Modal Logic
+            const dishModal = document.getElementById('dish-modal');
+            const dishModalContent = document.getElementById('dish-modal-content');
+            const closeDishModalBtn = document.getElementById('close-dish-modal');
+            const dishCards = document.querySelectorAll('.dish-card');
+
+            const dishImg = document.getElementById('dish-modal-img');
+            const dishTitle = document.getElementById('dish-modal-title');
+            const dishDesc = document.getElementById('dish-modal-desc');
+            const dishPrice = document.getElementById('dish-modal-price');
+            const dishOrderBtn = document.getElementById('dish-modal-order');
+
+            dishCards.forEach(card => {
+                card.addEventListener('click', (e) => {
+                    // Prevent if clicked on a link inside the card
+                    if (e.target.closest('a') || e.target.closest('button.close')) return;
+
+                    const title = card.querySelector('h3').innerText;
+                    const desc = card.querySelector('p').innerText;
+
+                    const spans = Array.from(card.querySelectorAll('span.text-primary'));
+                    const priceSpan = spans.find(s => s.innerText.includes('€'));
+                    const price = priceSpan ? priceSpan.innerText : '';
+
+                    const img = card.querySelector('img').src;
+
+                    dishTitle.innerText = title;
+                    dishDesc.innerText = desc;
+                    dishPrice.innerText = price;
+                    dishImg.src = img;
+
+                    const phone = "573217761953";
+                    const msg = `Hola, quiero ordenar el plato: ${title}`;
+                    dishOrderBtn.href = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+
+                    dishModal.classList.remove('hidden');
+                    dishModal.classList.add('flex');
+                    setTimeout(() => {
+                        dishModal.classList.remove('opacity-0');
+                        dishModalContent.classList.remove('scale-95');
+                        dishModalContent.classList.add('scale-100');
+                    }, 10);
+                });
+            });
+
+            const closeDishModal = () => {
+                dishModal.classList.add('opacity-0');
+                dishModalContent.classList.remove('scale-100');
+                dishModalContent.classList.add('scale-95');
+                setTimeout(() => {
+                    dishModal.classList.add('hidden');
+                    dishModal.classList.remove('flex');
+                }, 300);
+            };
+
+            closeDishModalBtn.addEventListener('click', closeDishModal);
+            dishModal.addEventListener('click', (e) => {
+                if (e.target === dishModal) closeDishModal();
+            });
+
+            // Scroll Animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('section:not(:first-of-type)').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+
+</html>

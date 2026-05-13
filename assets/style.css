@@ -1,0 +1,48 @@
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.glass-panel:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    transform: scale(1.02);
+}
+
+.text-gold {
+    color: #D4AF37;
+}
+
+.bg-gold {
+    background-color: #D4AF37;
+}
+
+.border-gold {
+    border-color: #D4AF37;
+}
+
+/* Floating Social Buttons */
+.floating-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floating-button:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+.whatsapp-bg {
+    background-color: #25D366;
+}
+
+.instagram-bg {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
